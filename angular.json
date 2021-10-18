@@ -144,6 +144,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Tourist"
+    }
+  },
+  "defaultProject": "Tourist",
+  "cli": {
+    "analytics": false
+  }
 }
