@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit {
   getPlaceData(xid): any {
     this.apiService.openTrip_xid(xid).subscribe(response => {
       this.displayData = response
-      console.log(response)
     })
   }
 }
