@@ -1,5 +1,13 @@
 <input type="search" [formControl]="searchForm">
 <button (click)="Search()">Search</button>
-<h1>{{country}}
-    {{lat}}
-    {{lon}}</h1>
+
+<table>
+  <tr>
+    <th>Place Name</th>
+    <th>Rating</th>
+  </tr>
+  <tr *ngFor="let data of responseData">
+    <td>{{data.name}}</td>
+    <td>{{data.rate}}</td>
+  </tr>
+</table>

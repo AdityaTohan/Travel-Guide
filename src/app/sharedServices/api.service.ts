@@ -14,11 +14,11 @@ export class ApiService {
     private httpClient : HttpClient
   ) {}
 
-  openTrip_geoname(places: string): any {
+  openTrip_geoname(userSearch: string): any {
     return this.httpClient.get(environment.openTripMapServer + "places/geoname", {
       params: {
         apikey: this.openTripMapApiKey,
-        name: places
+        name: userSearch
       }
     })
   }
@@ -28,7 +28,7 @@ export class ApiService {
       params: {
         apikey: this.openTripMapApiKey,
         radius: '1000',
-        limit: '5',
+        // limit: '5',
         offset: '0',
         lon: lon,
         lat: lat,
