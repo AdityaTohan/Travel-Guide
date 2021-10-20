@@ -11,7 +11,8 @@ import { ApiService } from '../sharedServices/api.service'
 export class HomeComponent implements OnInit {
 
   searchForm = new FormControl("")
-  responseData: any = null
+  responseData: any = ''
+  displayData: any = ''
 
   constructor(
     private apiService: ApiService
@@ -19,11 +20,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  Search():any {
+  getPlaces(): any {
     this.apiService.openTrip_geoname(this.searchForm.value).subscribe(response => {
       this.apiService.openTrip_radius(response.lat, response.lon).subscribe(response => {
         this.responseData = response
       })
+    })
+  }
+
+  getPlaceData(xid): any {
+    this.apiService.openTrip_xid(xid).subscribe(response => {
+      this.displayData = response
+      console.log(response)
     })
   }
 }

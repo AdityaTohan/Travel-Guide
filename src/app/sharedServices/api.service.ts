@@ -37,4 +37,12 @@ export class ApiService {
       }
     })
   }
+
+  openTrip_xid(placeId: string): any {
+    return this.httpClient.get(environment.openTripMapServer + 'places/xid/' + placeId, {
+      params: {
+        apikey: this.openTripMapApiKey
+      }
+    })
+  }
 }

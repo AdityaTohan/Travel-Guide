@@ -1,13 +1,33 @@
-<input type="search" [formControl]="searchForm">
-<button (click)="Search()">Search</button>
+<div class="container-fluid">
+  <input type="search" [formControl]="searchForm">
+  <button (click)="getPlaces()">Search</button>
 
-<table>
-  <tr>
-    <th>Place Name</th>
-    <th>Rating</th>
-  </tr>
-  <tr *ngFor="let data of responseData">
-    <td>{{data.name}}</td>
-    <td>{{data.rate}}</td>
-  </tr>
-</table>
+  <div class="row">
+    <div class="col text-center">
+      <table class="table table-responsive table-hover text-center">
+        <thead>
+        <tr>
+          <th>Place Name</th>
+          <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of responseData" (click)="getPlaceData(data.xid)">
+          <td>{{data.name}}</td>
+          <td>{{data.rate}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="row">
+    <div class="col text-center">
+      <h3>{{displayData.name}}</h3>
+      <img *ngIf="displayData.preview" src="{{displayData.preview.source}}">
+    </div>
+  </div>
+
+</div>
