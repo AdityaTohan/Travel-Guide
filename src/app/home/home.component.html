@@ -2,9 +2,10 @@
   <input type="search" [formControl]="searchForm">
   <button (click)="getPlaces()">Search</button>
 
-  <div class="row">
-    <div class="col text-center">
-      <table class="table table-responsive table-hover text-center">
+  <div *ngIf="responseData" class="row">
+    <div class="col-2"></div>
+    <div class="col-8 table-responsive text-center">
+      <table class="table table-hover text-center">
         <thead>
         <tr>
           <th>Place Name</th>
