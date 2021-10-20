@@ -11,5 +11,9 @@
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "paths": {
+    "@environment": ["environments/environment"],
+    "@sharedServices/*": ["app/sharedServices/*"]
+  }
 }
